@@ -1,5 +1,7 @@
-#Exercices 1 : Créer une base de donnée "db_1" qui contient une table "users" qui correspond à la database que nous avons créé dans le cour précédent sur express
+##Exercices 1 : 
+Créer une base de donnée "db_1" qui contient une table "users" qui correspond à la database que nous avons créé dans le cour précédent sur express
 
+```
 postgres=> CREATE DATABASE db_1;
 CREATE DATABASE
 postgres=> \c db_1;
@@ -15,10 +17,13 @@ id | name | password
 2 | Bob | 456
 3 | Charlie | 789
 (3 rows)
+```
 
-#Exercices 2 : Ajouter 3 utilisateurs 'dan', 'eve', 'faythe' qui auront respectivement les password '101112', '131415', '161718'.
+##Exercices 2 : 
+Ajouter 3 utilisateurs 'dan', 'eve', 'faythe' qui auront respectivement les password '101112', '131415', '161718'.
 Affichez toutes les lignes de la table "users" de la base de donnée "db_1".
 
+```
 db_1=> INSERT INTO users (name, password) VALUES ('Dan', '101112'), ('Eve', '131415'), ('Faythe', '161718');
 INSERT 0 3
 db_1=> SELECT \* FROM users;
@@ -31,19 +36,25 @@ id | name | password
 5 | Eve | 131415
 6 | Faythe | 161718
 (6 rows)
+```
 
-#Exercice 3 : Affichez toutes les lignes de la table "users" de la base de donnée "db_1" dont le password possède plus de 3 caractères. Pour cela il vous faudra utiliser la fonction LENGTH.
+##Exercice 3 : 
+Affichez toutes les lignes de la table "users" de la base de donnée "db_1" dont le password possède plus de 3 caractères. Pour cela il vous faudra utiliser la fonction LENGTH.
 
-db_1=> SELECT \* FROM users WHERE length(password) > 3;
+```
+db_1=> SELECT * FROM users WHERE length(password) > 3;
 id | name | password
 ----+--------+----------
 4 | Dan | 101112
 5 | Eve | 131415
 6 | Faythe | 161718
 (3 rows)
+```
 
-#Exercice 4 : Modifiez la table "users" afin d'ajouter une nouvelle colonne "bio" qui contiendra une description a propos de l'utilisateur. Ce champ "bio" sera du texte avec un nombre de caractères illimités et sa valeur par défaut sera "Hello, world!" Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes
+##Exercice 4 : 
+Modifiez la table "users" afin d'ajouter une nouvelle colonne "bio" qui contiendra une description a propos de l'utilisateur. Ce champ "bio" sera du texte avec un nombre de caractères illimités et sa valeur par défaut sera "Hello, world!" Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes
 
+```
 db_1=> ALTER TABLE users ADD COLUMN bio TEXT DEFAULT 'Hello, World !';
 ALTER TABLE
 db_1=> SELECT \* FROM users;
@@ -56,11 +67,13 @@ id | name | password | bio
 5 | Eve | 131415 | Hello, World !
 6 | Faythe | 161718 | Hello, World !
 (6 rows)
+```
 
-#Exercice 5 :
+##Exercice 5 :
 Modifiez toutes les lignes existantes pour que la "bio" de chacun affiche, "Hello, i am PRENOM_DU_USER".
 Il faudra remplacer PRENOM_DU_USER par le véritable login de l'utilisateur.
 
+```
 db_1=> UPDATE users SET bio = 'Hello, i am Alice' WHERE name = 'Alice';
 UPDATE 1
 db_1=> UPDATE users SET bio = 'Hello, i am Bob' WHERE name = 'Bob';
@@ -83,18 +96,24 @@ id | name | password | bio
 5 | Eve | 131415 | Hello, i am Eve
 6 | Faythe | 161718 | Hello, i am Faythe
 (6 rows)
+```
 
-#Exercice 6 : Afficher les 2 lignes qui ont les "id" les plus grands par ordre décroissant. Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
+##Exercice 6 : 
+Afficher les 2 lignes qui ont les "id" les plus grands par ordre décroissant. Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
 
+```
 db_1=> SELECT \* FROM users ORDER BY id DESC LIMIT 2;
 id | name | password | bio
 ----+--------+----------+--------------------
 6 | Faythe | 161718 | Hello, i am Faythe
 5 | Eve | 131415 | Hello, i am Eve
 (2 rows)
+```
 
-Exercice 7 : Afficher toutes les lignes de la table "users" dont les "id" sont impairs par ordre croissant.
+##Exercice 7 : 
+Afficher toutes les lignes de la table "users" dont les "id" sont impairs par ordre croissant.
 
+```
 db_1=> SELECT \* FROM users WHERE id % 2 = 1;
 id | name | password | bio
 ----+---------+----------+---------------------
@@ -102,9 +121,12 @@ id | name | password | bio
 3 | Charlie | 789 | Hello, i am Charlie
 5 | Eve | 131415 | Hello, i am Eve
 (3 rows)
+```
 
-#Exercice 8 : Effacez toutes les lignes de la table "users dont les "id" sont pairs. Affichez toutes les lignes de la table users.
+##Exercice 8 : 
+Effacez toutes les lignes de la table "users dont les "id" sont pairs. Affichez toutes les lignes de la table users.
 
+```
 db_1=> DELETE FROM users WHERE id % 2 = 0;
 DELETE 3
 db_1=> SELECT \* FROM users;
@@ -114,10 +136,13 @@ id | name | password | bio
 3 | Charlie | 789 | Hello, i am Charlie
 5 | Eve | 131415 | Hello, i am Eve
 (3 rows)
+```
 
-#Exercice 9 : Effacer la TABLE "user".
+##Exercice 9 : 
+Effacer la TABLE "user".
 Effacer la DATABASE "db_1".
 
+```
 db_1=> DROP TABLE users;
 DROP TABLE
 db_1=> \c postgres
@@ -136,3 +161,4 @@ template1 | lsn971 | UTF8 | C | C | =c/lsn971 +
 (3 rows)
 
 postgres=>
+
