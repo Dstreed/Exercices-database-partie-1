@@ -1,4 +1,4 @@
-##1
+
 Exercices 1 : 
 Créer une base de donnée "db_1" qui contient une table "users" qui correspond à la database que nous avons créé dans le cour précédent sur express
 
