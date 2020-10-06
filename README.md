@@ -1,5 +1,3 @@
-## 1
-
 # Exercices 1 :
 
 Créer une base de donnée "db_1" qui contient une table "users" qui correspond à la database que nous avons créé dans le cour précédent sur express
@@ -22,8 +20,6 @@ id | name | password
 (3 rows)
 ```
 
-## 2
-
 # Exercices 2 :
 
 Ajouter 3 utilisateurs 'dan', 'eve', 'faythe' qui auront respectivement les password '101112', '131415', '161718'.
@@ -44,8 +40,6 @@ id | name | password
 (6 rows)
 ```
 
-## 3
-
 # Exercice 3 :
 
 Affichez toutes les lignes de la table "users" de la base de donnée "db_1" dont le password possède plus de 3 caractères. Pour cela il vous faudra utiliser la fonction LENGTH.
@@ -59,8 +53,6 @@ id | name | password
 6 | Faythe | 161718
 (3 rows)
 ```
-
-## 4
 
 # Exercice 4 :
 
@@ -80,8 +72,6 @@ id | name | password | bio
 6 | Faythe | 161718 | Hello, World !
 (6 rows)
 ```
-
-## 5
 
 # Exercice 5 :
 
@@ -113,8 +103,6 @@ id | name | password | bio
 (6 rows)
 ```
 
-## 6
-
 # Exercice 6 :
 
 Afficher les 2 lignes qui ont les "id" les plus grands par ordre décroissant. Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
@@ -127,8 +115,6 @@ id | name | password | bio
 5 | Eve | 131415 | Hello, i am Eve
 (2 rows)
 ```
-
-## 7
 
 # Exercice 7 :
 
@@ -143,8 +129,6 @@ id | name | password | bio
 5 | Eve | 131415 | Hello, i am Eve
 (3 rows)
 ```
-
-## 8
 
 # Exercice 8 :
 
@@ -161,8 +145,6 @@ id | name | password | bio
 5 | Eve | 131415 | Hello, i am Eve
 (3 rows)
 ```
-
-## 9
 
 # Exercice 9 :
 
