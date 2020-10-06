@@ -2,7 +2,7 @@
 
 Créer une base de donnée "db_1" qui contient une table "users" qui correspond à la database que nous avons créé dans le cour précédent sur express
 
-```
+```sql
 postgres=> CREATE DATABASE db_1;
 CREATE DATABASE
 postgres=> \c db_1;
@@ -25,7 +25,7 @@ id | name | password
 Ajouter 3 utilisateurs 'dan', 'eve', 'faythe' qui auront respectivement les password '101112', '131415', '161718'.
 Affichez toutes les lignes de la table "users" de la base de donnée "db_1".
 
-```
+```sql
 db_1=> INSERT INTO users (name, password) VALUES ('Dan', '101112'), ('Eve', '131415'), ('Faythe', '161718');
 INSERT 0 3
 db_1=> SELECT \* FROM users;
@@ -44,7 +44,7 @@ id | name | password
 
 Affichez toutes les lignes de la table "users" de la base de donnée "db_1" dont le password possède plus de 3 caractères. Pour cela il vous faudra utiliser la fonction LENGTH.
 
-```
+```sql
 db_1=> SELECT * FROM users WHERE length(password) > 3;
 id | name | password
 ----+--------+----------
@@ -58,7 +58,7 @@ id | name | password
 
 Modifiez la table "users" afin d'ajouter une nouvelle colonne "bio" qui contiendra une description a propos de l'utilisateur. Ce champ "bio" sera du texte avec un nombre de caractères illimités et sa valeur par défaut sera "Hello, world!" Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes
 
-```
+```sql
 db_1=> ALTER TABLE users ADD COLUMN bio TEXT DEFAULT 'Hello, World !';
 ALTER TABLE
 db_1=> SELECT \* FROM users;
@@ -78,7 +78,7 @@ id | name | password | bio
 Modifiez toutes les lignes existantes pour que la "bio" de chacun affiche, "Hello, i am PRENOM_DU_USER".
 Il faudra remplacer PRENOM_DU_USER par le véritable login de l'utilisateur.
 
-```
+```sql
 db_1=> UPDATE users SET bio = 'Hello, i am Alice' WHERE name = 'Alice';
 UPDATE 1
 db_1=> UPDATE users SET bio = 'Hello, i am Bob' WHERE name = 'Bob';
@@ -107,7 +107,7 @@ id | name | password | bio
 
 Afficher les 2 lignes qui ont les "id" les plus grands par ordre décroissant. Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
 
-```
+```sql
 db_1=> SELECT \* FROM users ORDER BY id DESC LIMIT 2;
 id | name | password | bio
 ----+--------+----------+--------------------
@@ -120,7 +120,7 @@ id | name | password | bio
 
 Afficher toutes les lignes de la table "users" dont les "id" sont impairs par ordre croissant.
 
-```
+```sql
 db_1=> SELECT \* FROM users WHERE id % 2 = 1;
 id | name | password | bio
 ----+---------+----------+---------------------
@@ -134,7 +134,7 @@ id | name | password | bio
 
 Effacez toutes les lignes de la table "users dont les "id" sont pairs. Affichez toutes les lignes de la table users.
 
-```
+```sql
 db_1=> DELETE FROM users WHERE id % 2 = 0;
 DELETE 3
 db_1=> SELECT \* FROM users;
@@ -151,7 +151,7 @@ id | name | password | bio
 Effacer la TABLE "user".
 Effacer la DATABASE "db_1".
 
-```
+```sql
 db_1=> DROP TABLE users;
 DROP TABLE
 db_1=> \c postgres
